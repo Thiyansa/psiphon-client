@@ -3,7 +3,7 @@ show_menu() {
 	echo
 	cat <<-MENU
     =====================================
-      Psiphon Client Manager by NDEVXLK
+           Psiphon Client Manager 
     =====================================
     1) Install Psiphon
     2) Uninstall Psiphon
@@ -18,11 +18,11 @@ install_psiphon() {
     if [ ! -d '/root/psiphon' ]; then
         sudo mkdir /root/psiphon
         if [[ "$(uname -m)" == "x86_64" ]]; then
-            sudo wget -4 -O /root/psiphon/psiphon 'https://raw.githubusercontent.com/ndevxlk/psiphon-client/main/psiphon-x86_64'
+            sudo wget -4 -O /root/psiphon/psiphon 'https://raw.githubusercontent.com/Thiyansa/psiphon-client/main/psiphon-x86_64'
         else
-            sudo wget -4 -O /root/psiphon/psiphon 'https://raw.githubusercontent.com/ndevxlk/psiphon-client/main/psiphon-aarch64'
+            sudo wget -4 -O /root/psiphon/psiphon 'https://raw.githubusercontent.com/Thiyansa/psiphon-client/main/psiphon-aarch64'
         fi
-        sudo wget -4 -O /root/psiphon/psiphon.config 'https://raw.githubusercontent.com/ndevxlk/psiphon-client/main/psiphon.config'
+        sudo wget -4 -O /root/psiphon/psiphon.config 'https://raw.githubusercontent.com/Thiyansa/psiphon-client/main/psiphon.config'
         sudo chmod +x /root/psiphon/psiphon
         sudo apt install screen -y
     fi
