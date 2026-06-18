@@ -23,13 +23,13 @@ After connecting, the following local proxies will be available:
 | SOCKS5   | `127.0.0.1:1081` |
 | HTTP     | `127.0.0.1:8081` |
 
-## ⚠️ Important Notes
+##  Important Notes
 
 * Psiphon proxy supports **HTTP** and **TLS** traffic only.
 * UDP traffic is **not supported**.
 * Make sure your applications are configured to use the appropriate proxy port.
 
-## ✨ Features
+##  Features
 
 * Easy installation and updates
 * Automatic Psiphon client management
