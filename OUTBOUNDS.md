@@ -1,10 +1,10 @@
-# 🌍 Psiphon Client Outbound Configurations
+# Psiphon Client Outbound Configurations
 
 This page contains ready-to-use **Xray / V2Ray SOCKS outbound** configurations for every supported Psiphon country.
 
 ---
 
-## 📌 Usage
+## Usage
 
 Copy the outbound you need and paste it into your **Xray**, **V2Ray**, or **Sing-box** configuration.
 
@@ -348,6 +348,6 @@ Each outbound listens on **127.0.0.1**.
 
 ---
 
-## ⬅ Back
+## Back
 
 **← [Return to Main README](README.md)**
