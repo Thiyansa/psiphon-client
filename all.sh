@@ -215,9 +215,9 @@ psiphon_status() {
         pid=$(sudo screen -ls | grep "$session_name" | cut -d. -f1 | awk '{print $1}' | head -n 1)
         
         if [ -n "$pid" ]; then
-            printf " ${BOLD}${YELLOW}│${NC}  %-4s ${BOLD}${YELLOW}  │${NC} %-4s ${BOLD}${YELLOW}│${NC} %-12s ${BOLD}${YELLOW}│${NC} ${GREEN}● RUNNING${NC}     ${BOLD}${YELLOW}│${NC} %-10s ${BOLD}${YELLOW}│${NC}\n" "$r" "$port" "$session_name" "$pid"
+            printf "${BOLD}${YELLOW}│ ${NC}  %-4s ${BOLD}${YELLOW}  │${NC} %-4s ${BOLD}${YELLOW}│${NC} %-12s ${BOLD}${YELLOW}│${NC} ${GREEN}● RUNNING${NC}     ${BOLD}${YELLOW}│${NC} %-10s ${BOLD}${YELLOW}│${NC}\n" "$r" "$port" "$session_name" "$pid"
         else
-            printf " ${BOLD}${YELLOW}│${NC}  %-4s ${BOLD}${YELLOW}  │${NC} %-4s ${BOLD}${YELLOW}│${NC} %-12s ${BOLD}${YELLOW}│${NC} ${RED}○ STOPPED${NC}     ${BOLD}${YELLOW}│${NC} %-10s ${BOLD}${YELLOW}│${NC}\n" "$r" "$port" "$session_name" "N/A"
+            printf "${BOLD}${YELLOW}│ ${NC}  %-4s ${BOLD}${YELLOW}  │${NC} %-4s ${BOLD}${YELLOW}│${NC} %-12s ${BOLD}${YELLOW}│${NC} ${RED}○ STOPPED${NC}     ${BOLD}${YELLOW}│${NC} %-10s ${BOLD}${YELLOW}│${NC}\n" "$r" "$port" "$session_name" "N/A"
         fi
         ((port++))
     done
