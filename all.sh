@@ -203,8 +203,10 @@ stop_specific_region() {
 
 psiphon_status() {
     show_header
+    
+    # Header Table Border
     echo -e "${BOLD}${YELLOW}┌────────┬──────┬────────────────┬───────────────┬────────────┐${NC}"
-    echo -e "${BOLD}${YELLOW}│${NC} ${BOLD}REGION${NC} ${BOLD}${YELLOW}│${NC} ${BOLD}PORT${NC} ${BOLD}${YELLOW}│${NC} ${BOLD}SCREEN SESSION${NC} ${BOLD}${YELLOW}│${NC}     ${BOLD}STATUS   ${NC} ${BOLD}${YELLOW}│${NC}     ${BOLD}PID   ${NC} ${BOLD}${YELLOW}│${NC}"
+    echo -e "${BOLD}${YELLOW}│${NC} ${BOLD}REGION${NC} ${BOLD}${YELLOW}│${NC} ${BOLD}PORT${NC} ${BOLD}${YELLOW}│${NC} ${BOLD}SCREEN SESSION${NC} ${BOLD}${YELLOW}│${NC} ${BOLD}    STATUS     ${NC}${BOLD}${YELLOW}│${NC} ${BOLD}   PID      ${NC}${BOLD}${YELLOW}│${NC}"
     echo -e "${BOLD}${YELLOW}├────────┼──────┼────────────────┼───────────────┼────────────┤${NC}"
     
     local port=$START_PORT
@@ -215,15 +217,20 @@ psiphon_status() {
         pid=$(sudo screen -ls | grep "$session_name" | cut -d. -f1 | awk '{print $1}' | head -n 1)
         
         if [ -n "$pid" ]; then
-            printf "${BOLD}${YELLOW}│ ${NC}  %-4s ${BOLD}${YELLOW}  │${NC} %-4s ${BOLD}${YELLOW}│${NC} %-12s ${BOLD}${YELLOW}│${NC} ${GREEN}● RUNNING${NC}     ${BOLD}${YELLOW}│${NC} %-10s ${BOLD}${YELLOW}│${NC}\n" "$r" "$port" "$session_name" "$pid"
+            # Color string එක කලින් සාදාගන්නවා
+            local status_str="${GREEN}● RUNNING${NC}"
+            # Alignment එක හරියන්න spaces ප්‍රමාණය ගණනය කර ප්‍රින්ට් කිරීම
+            printf "${BOLD}${YELLOW}│${NC} %-6s ${BOLD}${YELLOW}│${NC} %-4s ${BOLD}${YELLOW}│${NC} %-14s ${BOLD}${YELLOW}│${NC} %b  ${BOLD}${YELLOW}│${NC} %-10s ${BOLD}${YELLOW}│${NC}\n" "$r" "$port" "$session_name" "$status_str" "$pid"
         else
-            printf "${BOLD}${YELLOW}│ ${NC}  %-4s ${BOLD}${YELLOW}  │${NC} %-4s ${BOLD}${YELLOW}│${NC} %-12s ${BOLD}${YELLOW}│${NC} ${RED}○ STOPPED${NC}     ${BOLD}${YELLOW}│${NC} %-10s ${BOLD}${YELLOW}│${NC}\n" "$r" "$port" "$session_name" "N/A"
+            local status_str="${RED}○ STOPPED${NC}"
+            printf "${BOLD}${YELLOW}│${NC} %-6s ${BOLD}${YELLOW}│${NC} %-4s ${BOLD}${YELLOW}│${NC} %-14s ${BOLD}${YELLOW}│${NC} %b  ${BOLD}${YELLOW}│${NC} %-10s ${BOLD}${YELLOW}│${NC}\n" "$r" "$port" "$session_name" "$status_str" "N/A"
         fi
         ((port++))
     done
     
+    # Bottom Table Border
     echo -e "${BOLD}${YELLOW}└────────┴──────┴────────────────┴───────────────┴────────────┘${NC}"
-    echo -e "${CYAN}Total Available Regions: ${#REGIONS[@]} | Starting Port: $START_PORT${NC}"
+    echo -e "\n${CYAN}Total Available Regions: ${#REGIONS[@]} | Starting Port: $START_PORT${NC}"
 }
 
 # Ensure root access
