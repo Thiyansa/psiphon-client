@@ -203,9 +203,9 @@ stop_specific_region() {
 
 psiphon_status() {
     show_header
-    echo -e "${BOLD}${YELLOW}┌───────┬──────┬──────────────┬───────────────┬────────────┐${NC}"
-    echo -e "${BOLD}${YELLOW}│${NC} ${BOLD}REGION${NC} ${BOLD}${YELLOW}│${NC} ${BOLD}PORT${NC} ${BOLD}${YELLOW}│${NC} ${BOLD}SCREEN SESSION${NC} ${BOLD}${YELLOW}│${NC} ${BOLD}STATUS         ${NC} ${BOLD}${YELLOW}│${NC} ${BOLD}PID        ${NC} ${BOLD}${YELLOW}│${NC}"
-    echo -e "${BOLD}${YELLOW}├───────┼──────┼──────────────┼───────────────┼────────────┤${NC}"
+    echo -e "${BOLD}${YELLOW}┌────────┬──────┬────────────────┬───────────────┬────────────┐${NC}"
+    echo -e "${BOLD}${YELLOW}│${NC} ${BOLD}REGION${NC} ${BOLD}${YELLOW}│${NC} ${BOLD}PORT${NC} ${BOLD}${YELLOW}│${NC} ${BOLD}SCREEN SESSION${NC} ${BOLD}${YELLOW}│${NC}     ${BOLD}STATUS   ${NC} ${BOLD}${YELLOW}│${NC}     ${BOLD}PID   ${NC} ${BOLD}${YELLOW}│${NC}"
+    echo -e "${BOLD}${YELLOW}├────────┼──────┼────────────────┼───────────────┼────────────┤${NC}"
     
     local port=$START_PORT
     for r in "${REGIONS[@]}"; do
@@ -215,14 +215,14 @@ psiphon_status() {
         pid=$(sudo screen -ls | grep "$session_name" | cut -d. -f1 | awk '{print $1}' | head -n 1)
         
         if [ -n "$pid" ]; then
-            printf "${BOLD}${YELLOW}│${NC}  %-4s ${BOLD}${YELLOW}│${NC} %-4s ${BOLD}${YELLOW}│${NC} %-12s ${BOLD}${YELLOW}│${NC} ${GREEN}● RUNNING${NC}     ${BOLD}${YELLOW}│${NC} %-10s ${BOLD}${YELLOW}│${NC}\n" "$r" "$port" "$session_name" "$pid"
+            printf " ${BOLD}${YELLOW}│${NC}  %-4s ${BOLD}${YELLOW}  │${NC} %-4s ${BOLD}${YELLOW}│${NC} %-12s ${BOLD}${YELLOW}│${NC} ${GREEN}● RUNNING${NC}     ${BOLD}${YELLOW}│${NC} %-10s ${BOLD}${YELLOW}│${NC}\n" "$r" "$port" "$session_name" "$pid"
         else
-            printf "${BOLD}${YELLOW}│${NC}  %-4s ${BOLD}${YELLOW}│${NC} %-4s ${BOLD}${YELLOW}│${NC} %-12s ${BOLD}${YELLOW}│${NC} ${RED}○ STOPPED${NC}     ${BOLD}${YELLOW}│${NC} %-10s ${BOLD}${YELLOW}│${NC}\n" "$r" "$port" "$session_name" "N/A"
+            printf " ${BOLD}${YELLOW}│${NC}  %-4s ${BOLD}${YELLOW}  │${NC} %-4s ${BOLD}${YELLOW}│${NC} %-12s ${BOLD}${YELLOW}│${NC} ${RED}○ STOPPED${NC}     ${BOLD}${YELLOW}│${NC} %-10s ${BOLD}${YELLOW}│${NC}\n" "$r" "$port" "$session_name" "N/A"
         fi
         ((port++))
     done
     
-    echo -e "${BOLD}${YELLOW}└───────┴──────┴──────────────┴───────────────┴────────────┘${NC}"
+    echo -e "${BOLD}${YELLOW}└────────┴──────┴────────────────┴───────────────┴────────────┘${NC}"
     echo -e "${CYAN}Total Available Regions: ${#REGIONS[@]} | Starting Port: $START_PORT${NC}"
 }
 
