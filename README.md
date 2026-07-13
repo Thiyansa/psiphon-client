@@ -115,6 +115,9 @@ Example outbound configuration:
 
 Replace the port with the appropriate local proxy port for the desired country.
 
+Complete outbound configurations for all supported countries are available here.
+
+👉 **[View Full Outbound Configuration](OUTBOUNDS.md)**
 
 # Notes
 
