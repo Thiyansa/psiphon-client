@@ -220,10 +220,10 @@ psiphon_status() {
             # Color string එක කලින් සාදාගන්නවා
             local status_str="${GREEN}● RUNNING${NC}"
             # Alignment එක හරියන්න spaces ප්‍රමාණය ගණනය කර ප්‍රින්ට් කිරීම
-            printf "${BOLD}${YELLOW}│${NC} %-6s ${BOLD}${YELLOW}│${NC} %-4s ${BOLD}${YELLOW}│${NC} %-14s ${BOLD}${YELLOW}│${NC} %b  ${BOLD}${YELLOW}│${NC} %-10s ${BOLD}${YELLOW}   │${NC}\n" "$r" "$port" "$session_name" "$status_str" "$pid"
+            printf "${BOLD}${YELLOW}│${NC} %-6s ${BOLD}${YELLOW}│${NC} %-4s ${BOLD}${YELLOW}│${NC} %-14s ${BOLD}${YELLOW}│${NC} %b     ${BOLD}${YELLOW}│${NC} %-10s ${BOLD}${YELLOW}│${NC}\n" "$r" "$port" "$session_name" "$status_str" "$pid"
         else
             local status_str="${RED}○ STOPPED${NC}"
-            printf "${BOLD}${YELLOW}│${NC} %-6s ${BOLD}${YELLOW}│${NC} %-4s ${BOLD}${YELLOW}│${NC} %-14s ${BOLD}${YELLOW}│${NC} %b  ${BOLD}${YELLOW}│${NC} %-10s ${BOLD}${YELLOW}   │${NC}\n" "$r" "$port" "$session_name" "$status_str" "N/A"
+            printf "${BOLD}${YELLOW}│${NC} %-6s ${BOLD}${YELLOW}│${NC} %-4s ${BOLD}${YELLOW}│${NC} %-14s ${BOLD}${YELLOW}│${NC} %b     ${BOLD}${YELLOW}│${NC} %-10s ${BOLD}${YELLOW}│${NC}\n" "$r" "$port" "$session_name" "$status_str" "N/A"
         fi
         ((port++))
     done
