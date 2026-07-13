@@ -206,7 +206,7 @@ psiphon_status() {
     
     # Header Table Border
     echo -e "${BOLD}${YELLOW}┌────────┬──────┬────────────────┬───────────────┬────────────┐${NC}"
-    echo -e "${BOLD}${YELLOW}│${NC} ${BOLD}REGION${NC} ${BOLD}${YELLOW}│${NC} ${BOLD}PORT${NC} ${BOLD}${YELLOW}│${NC} ${BOLD}SCREEN SESSION${NC} ${BOLD}${YELLOW}│${NC} ${BOLD}    STATUS     ${NC}${BOLD}${YELLOW}│${NC} ${BOLD}   PID      ${NC}${BOLD}${YELLOW}│${NC}"
+    echo -e "${BOLD}${YELLOW}│${NC} ${BOLD}REGION${NC} ${BOLD}${YELLOW}│${NC} ${BOLD}PORT${NC} ${BOLD}${YELLOW}│${NC} ${BOLD}SCREEN SESSION${NC} ${BOLD}${YELLOW}│${NC} ${BOLD}    STATUS    ${NC}${BOLD}${YELLOW}│${NC} ${BOLD}   PID     ${NC}${BOLD}${YELLOW}│${NC}"
     echo -e "${BOLD}${YELLOW}├────────┼──────┼────────────────┼───────────────┼────────────┤${NC}"
     
     local port=$START_PORT
@@ -220,10 +220,10 @@ psiphon_status() {
             # Color string එක කලින් සාදාගන්නවා
             local status_str="${GREEN}● RUNNING${NC}"
             # Alignment එක හරියන්න spaces ප්‍රමාණය ගණනය කර ප්‍රින්ට් කිරීම
-            printf "${BOLD}${YELLOW}│${NC} %-6s ${BOLD}${YELLOW}│${NC} %-4s ${BOLD}${YELLOW}│${NC} %-14s ${BOLD}${YELLOW}│${NC} %b  ${BOLD}${YELLOW}│${NC} %-10s ${BOLD}${YELLOW}│${NC}\n" "$r" "$port" "$session_name" "$status_str" "$pid"
+            printf "${BOLD}${YELLOW}│${NC} %-6s ${BOLD}${YELLOW}│${NC} %-4s ${BOLD}${YELLOW}│${NC} %-14s ${BOLD}${YELLOW}│${NC} %b  ${BOLD}${YELLOW}│${NC} %-10s ${BOLD}${YELLOW}   │${NC}\n" "$r" "$port" "$session_name" "$status_str" "$pid"
         else
             local status_str="${RED}○ STOPPED${NC}"
-            printf "${BOLD}${YELLOW}│${NC} %-6s ${BOLD}${YELLOW}│${NC} %-4s ${BOLD}${YELLOW}│${NC} %-14s ${BOLD}${YELLOW}│${NC} %b  ${BOLD}${YELLOW}│${NC} %-10s ${BOLD}${YELLOW}│${NC}\n" "$r" "$port" "$session_name" "$status_str" "N/A"
+            printf "${BOLD}${YELLOW}│${NC} %-6s ${BOLD}${YELLOW}│${NC} %-4s ${BOLD}${YELLOW}│${NC} %-14s ${BOLD}${YELLOW}│${NC} %b  ${BOLD}${YELLOW}│${NC} %-10s ${BOLD}${YELLOW}   │${NC}\n" "$r" "$port" "$session_name" "$status_str" "N/A"
         fi
         ((port++))
     done
