@@ -41,6 +41,16 @@ bash <(curl -Ls https://raw.githubusercontent.com/Thiyansa/psiphon-client/main/a
 
 ---
 
+## TOR with Multi Mode
+
+Installs multiple Psiphon clients using different country exit nodes with Tor Proxy.
+
+```bash
+bash <(curl -Ls https://github.com/Thiyansa/psiphon-client/main/PTor.sh)
+```
+
+---
+
 # Usage
 
 After installation, start the manager with:
