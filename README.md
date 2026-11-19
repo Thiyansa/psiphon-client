@@ -46,7 +46,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/Thiyansa/psiphon-client/main/a
 Installs multiple Psiphon clients using different country exit nodes with Tor Proxy.
 
 ```bash
-bash <(curl -Ls https://github.com/Thiyansa/psiphon-client/main/PTor.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/Thiyansa/psiphon-client/main/PTor.sh)
 ```
 
 ---
